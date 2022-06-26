@@ -1,3 +1,4 @@
+change 
 If you are looking to list all subscriptions tied to all SNS topics, this script will iterate through all regions, and topics to return a list of all subscriptions in your Account in a tabular dashboard using PrettyTable (can be added as a Lambda layer from [here](/lambda-layer/)). Depending upon the number of resources in your account, it may take a while. Here I am using the Lambda's init duration of max 10 seconds to leverage full CPU power, if your account has a lot of subscriptions then this will overflow the init duration and you will be charged for the entire duration including init.
 
 I am using `ec2.describe_regions()` to get the list of all AWS regions and iterate through it to create new SNS client, which in turn will return the list of all subscriptions.
